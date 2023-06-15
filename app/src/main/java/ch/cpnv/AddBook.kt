@@ -11,11 +11,6 @@ import android.widget.Toast
 import ch.cpnv.models.Book
 
 class AddBook : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -25,7 +20,11 @@ class AddBook : Fragment() {
         val description = view.findViewById<EditText>(R.id.book_description)
         val isbn = view.findViewById<EditText>(R.id.book_isbn)
 
-        view.findViewById<Button>(R.id.btn_add).setOnClickListener { addBook(title.text.toString(), description.text.toString(), isbn.text.toString()) }
+        view.findViewById<Button>(R.id.btn_add).setOnClickListener {
+            addBook(
+                title.text.toString(), description.text.toString(), isbn.text.toString()
+            )
+        }
 
         title.text.clear()
         description.text.clear()

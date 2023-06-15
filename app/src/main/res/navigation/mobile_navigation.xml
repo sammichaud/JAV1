@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_lend"
-        android:name="ch.cpnv.Lend"
-        android:label="@string/title_lend"
-        tools:layout="@layout/fragment_lend" />
+        android:id="@+id/navigation_add_book"
+        android:name="ch.cpnv.AddBook"
+        android:label="@string/title_add_book"
+        tools:layout="@layout/fragment_add_book" />
 </navigation>

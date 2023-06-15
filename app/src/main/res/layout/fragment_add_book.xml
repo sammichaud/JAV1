@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical"
+    tools:context=".AddBook">
+
+    <EditText
+        android:id="@+id/book_title"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:autofillHints=""
+        android:hint="@string/book_title"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/book_description"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/description"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/book_isbn"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/isbn"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/add">
+
+    </Button>
+
+</LinearLayout>

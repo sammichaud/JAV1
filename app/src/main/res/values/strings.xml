@@ -4,4 +4,7 @@
     <string name="title_lend">Prêt</string>
     <string name="title_notifications">Notifications</string>
     <string name="select_contact">Sélectionner un contact</string>
+    <string name="select_date">Sélectionner la Date</string>
+    <string name="select_date_hint">Choose a date</string>
+    <string name="btn_lend">Prêter</string>
 </resources>

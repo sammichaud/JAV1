@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".AddBookActivity">
 
+    <Spinner
+        android:id="@+id/book_list"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal" />
+
     <EditText
         android:id="@+id/book_title"
         android:layout_width="320dp"

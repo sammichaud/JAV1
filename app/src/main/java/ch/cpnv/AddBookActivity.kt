@@ -3,8 +3,10 @@ package ch.cpnv
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import ch.cpnv.models.Book
 
 class AddBookActivity : AppCompatActivity() {
@@ -13,6 +15,18 @@ class AddBookActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_book)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val items = mutableListOf<String>()
+        for (book in JAV1.db.bookDao().getAll()){
+            items.add(book.title)
+        }
+
+        val bookList = findViewById<Spinner>(R.id.book_list)
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        bookList.adapter = adapter
+
 
         val title = findViewById<EditText>(R.id.book_title)
         val description = findViewById<EditText>(R.id.book_description)

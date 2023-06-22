@@ -12,4 +12,5 @@
     <string name="isbn">ISBN</string>
     <string name="add">Ajouter</string>
     <string name="description">Description</string>
+    <string name="add_lend">Faire un prêt</string>
 </resources>

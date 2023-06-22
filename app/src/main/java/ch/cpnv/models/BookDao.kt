@@ -14,7 +14,7 @@ interface BookDao {
     fun getLendsBooks(): List<Book>
 
     @Query("SELECT * FROM books WHERE id = :id")
-    fun findById(id: String): Book
+    fun findById(id: Int?): Book
 
     @Query("SELECT * FROM books WHERE title LIKE :title LIMIT 10")
     fun findByTitle(title: String): Book

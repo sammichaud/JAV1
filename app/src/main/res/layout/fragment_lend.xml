@@ -5,38 +5,47 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".Lend">
+    tools:context=".LendBook">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/select_contact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/select_contact"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/contact_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/select_contact_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/select_contact"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/contact_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/select_date"
-        android:layout_width="345dp"
-        android:layout_height="58dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/select_date_hint"
-        android:inputType="date" />
+        android:inputType="date"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/btn_lend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="@string/btn_lend" />
 
 </LinearLayout>

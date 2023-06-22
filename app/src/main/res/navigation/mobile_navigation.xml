@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/navigation_lend_book"
-        android:name="ch.cpnv.Lend"
+        android:name="ch.cpnv.LendBook"
         android:label="@string/title_add_book"
         tools:layout="@layout/fragment_lend" />
 </navigation>

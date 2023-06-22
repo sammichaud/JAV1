@@ -46,7 +46,7 @@ class Home : Fragment() {
         if (mode == Mode.All) {
             val books = JAV1.db.bookDao().getAll()
             rvBooks.adapter = RVBooksAdapter(books, parentFragmentManager)
-            btnLend.text = "Prêter"
+            btnLend.text = "Lended"
         } else if (mode == Mode.Lended) {
             val books = JAV1.db.bookDao().getLendsBooks()
             rvBooks.adapter = RVBooksAdapter(books, parentFragmentManager)

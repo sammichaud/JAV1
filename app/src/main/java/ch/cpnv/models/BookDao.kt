@@ -10,7 +10,7 @@ interface BookDao {
     @Query("SELECT * FROM books")
     fun getAll(): List<Book>
 
-    @Query("SELECT * FROM books INNER JOIN lends ON lends.bookId = books.id AND lends.status = \"lent\"")
+    @Query("SELECT books.* FROM books INNER JOIN lends ON lends.bookId = books.id AND lends.status = \"lend\"")
     fun getLendsBooks(): List<Book>
 
     @Query("SELECT * FROM books WHERE id = :id")

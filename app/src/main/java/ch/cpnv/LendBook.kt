@@ -91,7 +91,6 @@ class LendBook : Fragment() {
             date.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
             textContact.text = ""
             btnLend.text = "Prêter"
-        } else {
         }
     }
 

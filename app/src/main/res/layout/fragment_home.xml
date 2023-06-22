@@ -23,7 +23,13 @@
             android:gravity="top"
             android:orientation="vertical"
             tools:ignore="NestedWeights">
-
+            <Button
+                android:id="@+id/btn_lend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/btn_lend"
+                android:textAlignment="center" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvBooks"
                 android:layout_width="match_parent"

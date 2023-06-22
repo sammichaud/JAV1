@@ -10,6 +10,9 @@ interface BookDao {
     @Query("SELECT * FROM books")
     fun getAll(): List<Book>
 
+    @Query("SELECT * FROM books INNER JOIN lends ON lends.bookId = books.id AND lends.status = \"lent\"")
+    fun getLendsBooks(): List<Book>
+
     @Query("SELECT * FROM books WHERE id = :id")
     fun findById(id: String): Book
 
@@ -20,5 +23,5 @@ interface BookDao {
     fun insert(vararg books: Book)
 
     @Delete
-    fun delete(user: Book)
+    fun delete(book: Book)
 }

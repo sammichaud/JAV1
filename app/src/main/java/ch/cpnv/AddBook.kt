@@ -24,11 +24,10 @@ class AddBook : Fragment() {
             addBook(
                 title.text.toString(), description.text.toString(), isbn.text.toString()
             )
+            title.text.clear()
+            description.text.clear()
+            isbn.text.clear()
         }
-
-        title.text.clear()
-        description.text.clear()
-        isbn.text.clear()
 
         return view
     }

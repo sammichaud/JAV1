@@ -9,11 +9,21 @@
         android:id="@+id/navigation_home"
         android:name="ch.cpnv.Home"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigate_to_LendFragment"
+            app:destination="@id/navigation_lend_book" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_book"
         android:name="ch.cpnv.AddBook"
         android:label="@string/title_add_book"
         tools:layout="@layout/fragment_add_book" />
+
+    <fragment
+        android:id="@+id/navigation_lend_book"
+        android:name="ch.cpnv.Lend"
+        android:label="@string/title_add_book"
+        tools:layout="@layout/fragment_lend" />
 </navigation>

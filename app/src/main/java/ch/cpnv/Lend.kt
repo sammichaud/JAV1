@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -15,12 +16,26 @@ import androidx.fragment.app.Fragment
 import android.widget.DatePicker
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import java.util.Calendar
 
 
 class Lend : Fragment() {
+    private var bookId: Int? = null
     private lateinit var date: EditText
     private lateinit var textContact: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val appBar = (requireActivity() as AppCompatActivity).supportActionBar
+        appBar?.setDisplayHomeAsUpEnabled(true)
+        setHasOptionsMenu(true)
+        arguments?.let {
+            bookId = it.getInt("bookId")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -29,13 +44,10 @@ class Lend : Fragment() {
 
         view.findViewById<Button>(R.id.select_contact_button)
             .setOnClickListener { pickGoogleContact() }
-
         view.findViewById<Button>(R.id.btn_lend).setOnClickListener { saveLend() }
-
 
         date = view.findViewById(R.id.select_date)
         date.setOnClickListener { showDatePickerDialog() }
-
         textContact = view.findViewById(R.id.contact_text)
 
         return view
@@ -50,6 +62,16 @@ class Lend : Fragment() {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                NavHostFragment.findNavController(requireParentFragment()).popBackStack()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -59,7 +81,6 @@ class Lend : Fragment() {
         val datePickerDialog = DatePickerDialog(
             requireContext(),
             { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
-                // Handle the selected date
                 val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
                 date.setText(selectedDate)
             },
@@ -79,11 +100,7 @@ class Lend : Fragment() {
                 val contactUri = data?.data
                 val cursor = contactUri?.let {
                     requireActivity().contentResolver.query(
-                        it,
-                        null,
-                        null,
-                        null,
-                        null
+                        it, null, null, null, null
                     )
                 }
 

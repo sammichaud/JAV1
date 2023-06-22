@@ -1,14 +1,17 @@
 package ch.cpnv.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ch.cpnv.JAV1
 import ch.cpnv.R
 import ch.cpnv.models.Book
+import ch.cpnv.models.Lend
 
 class RVBooksAdapter(private val books: List<Book>, private val fragmentManager: FragmentManager) :
     RecyclerView.Adapter<RVBooksAdapter.ViewHolder>() {
@@ -29,11 +32,18 @@ class RVBooksAdapter(private val books: List<Book>, private val fragmentManager:
             holder.bookLandedAt.text = lend.lendAt
             holder.bookLandedTo.text = lend.lendTo
         }
-//        holder.itemView.setOnClickListener { itemHandleClick(book) };
+        holder.itemView.setOnClickListener { lendBook(book) };
     }
 
     override fun getItemCount(): Int {
         return books.size
+    }
+
+    private fun lendBook(book: Book) {
+        val bundle = Bundle()
+        bundle.putInt("bookId", book.id)
+        fragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)?.findNavController()
+            ?.navigate(R.id.action_navigate_to_LendFragment, bundle)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
